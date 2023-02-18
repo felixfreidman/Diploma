@@ -1,0 +1,22 @@
+body {
+    font-family: "Montserrat";
+    font-weight: 500;
+    width: 100vw;
+    overflow-x: hidden;
+    cursor: default;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 600;
+    color: $firm_blue;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: $firm_red;
+    }
+}

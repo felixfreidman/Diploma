@@ -1,0 +1,279 @@
+.main {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 89px;
+
+    &::after {
+        content: url(./assets/images/content/BasicGrad.png);
+        position: absolute;
+        top: -200px;
+        right: 0;
+        width: 100%;
+        height: 1000px;
+        z-index: 1;
+    }
+}
+
+.greeting-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 700px;
+    padding: 115px 260px 45px;
+    // background-image: url(./assets/images/content/MainPageBg.png);
+
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     z-index: 1;
+    //     width: 100%;
+    //     height: 100%;
+    //     background: rgba($firm_blue, 0.7);
+    // }
+
+    &__header {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 90px;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 130%;
+        color: $firm_blue;
+    }
+
+    &__subheader {
+        position: relative;
+        z-index: 2;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 120%;
+        color: $firm_blue;
+        margin-bottom: 25px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__phone-link {
+        color: $firm_blue;
+    }
+
+    &__img {
+        position: absolute;
+        width: 650px;
+        height: fit-content;
+        position: absolute;
+        top: 10px;
+        right: 170px;
+
+    }
+}
+
+.search-form {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 260px;
+
+    &__container {
+        width: calc(100% - 70px);
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 25px;
+        border: 1px solid $firm_red;
+        border-radius: 22px;
+        background-color: rgba($firm_white, 0.5);
+    }
+
+    &__input {
+        width: 60%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 120%;
+        color: $firm_blue;
+
+        &::placeholder {
+            color: #9D9D9C;
+        }
+    }
+
+    &__filter-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -5px;
+            width: 1px;
+            height: 30px;
+            display: block;
+            background-color: $firm_red;
+        }
+    }
+
+    &__submit-button {
+        width: 40px;
+        height: 40px;
+        outline: $firm_red;
+        border-radius: 50%;
+        border: none;
+        background-image: url(./assets/images/content/Search_Logo.svg);
+        background-position: 50% 50%;
+        background-size: contain;
+        cursor: pointer;
+    }
+
+    /* Customize the label (the container) */
+    &__filter-tag {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px 8px;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        &:hover {
+            .search-form__filter-name {
+                color: $firm_red;
+            }
+        }
+
+        &:hover input:checked~.search-form__filter-name {
+            color: $firm_white;
+        }
+
+        & input:checked~.search-form__filter-name {
+            color: $firm_white;
+        }
+
+        & input:checked~.search-form__filter-checkmark {
+            background-color: $firm_red;
+        }
+
+        .search-form__filter-checkmark {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 18px;
+            margin: auto;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+
+
+    &__filter-name {
+        position: relative;
+        z-index: 3;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 120%;
+        color: #9D9D9C;
+        transition: all 0.3s ease;
+    }
+}
+
+.action-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 260px;
+    margin-bottom: 60px;
+}
+
+.action-card {
+    position: relative;
+    width: calc(50% - 10px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 25px;
+    border-radius: 20px;
+    background-color: rgba($firm_white, 0.5);
+
+    &__header {
+        margin-bottom: 15px;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 120%;
+        color: $firm_blue;
+        z-index: 2;
+    }
+
+    &__subheader {
+        margin-bottom: auto;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 150%;
+        color: $firm_blue;
+        z-index: 2;
+    }
+
+    &__action-link {
+        width: 165px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: $firm_red;
+        color: $firm_white;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: $firm_white;
+            transform: scale(1.05);
+        }
+    }
+
+    &__img {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1;
+    }
+}
