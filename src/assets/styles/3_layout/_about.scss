@@ -1,0 +1,95 @@
+.about-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 40px 260px;
+
+    .about-controls {
+        display: flex;
+        align-items: center;
+        margin-top: 100px;
+        margin-bottom: 65px;
+
+        &__link {
+            position: relative;
+            margin-right: 70px;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 39px;
+            color: #002C42;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: $firm_red;
+                cursor: pointer;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: -35px;
+                width: 3px;
+                height: 26px;
+                margin-top: auto;
+                margin-bottom: auto;
+                display: block;
+                background: $firm_blue;
+
+            }
+
+            &--active {
+                color: $firm_red;
+            }
+
+            &:last-child {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .about-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        &__header {
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 32px;
+            color: $firm_blue;
+        }
+
+        &__links-container {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+
+        &__link-container {
+            display: flex;
+            align-items: center;
+        }
+
+        &__link-description {
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 29px;
+            color: $firm_blue;
+        }
+
+        &__link {
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 29px;
+            color: $firm_red;
+        }
+    }
+}

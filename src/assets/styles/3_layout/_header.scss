@@ -6,9 +6,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 260px 20px 249px;
     width: 100%;
+    padding: 20px 260px 20px 249px;
     background-color: $firm_white;
+    border-bottom: 1px solid $firm_blue;
     overflow: hidden;
 
     &__container {
