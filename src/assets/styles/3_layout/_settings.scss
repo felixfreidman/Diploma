@@ -39,6 +39,8 @@ html::-webkit-scrollbar-thumb {
 }
 
 .page-header {
+    z-index: 2;
+    position: relative;
     margin-bottom: 20px;
     font-weight: 700;
     font-size: 50px;
