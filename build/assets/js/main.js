@@ -1,47 +1,77 @@
 "use strict";
 
-var contactsSection = document.querySelector('.about-container--contacts');
-var librarySection = document.querySelector('.about-container--library');
-var resourcesSection = document.querySelector('.about-container--resources');
-var controlsLink = document.querySelectorAll('.about-controls__link');
-controlsLink.forEach(function (control) {
-  control.addEventListener('click', function () {
-    openSection(control);
-    shutControls(control);
-    control.classList.add('about-controls__link--active');
-  });
-});
+if (document.querySelector('.about-container--contacts')) {
+  var openSection = function openSection(node) {
+    var textValue = node.textContent;
 
-function openSection(node) {
-  var textValue = node.textContent;
+    switch (textValue) {
+      case 'Контакты':
+        closeSection();
+        contactsSection.classList.remove('js-hide-opacicity');
+        break;
 
-  switch (textValue) {
-    case 'Контакты':
-      closeSection();
-      contactsSection.classList.remove('js-hide-opacicity');
-      break;
+      case 'О библиотеке':
+        closeSection();
+        librarySection.classList.remove('js-hide-opacicity');
+        break;
 
-    case 'О библиотеке':
-      closeSection();
-      librarySection.classList.remove('js-hide-opacicity');
-      break;
+      case 'Наши ресурсы':
+        closeSection();
+        resourcesSection.classList.remove('js-hide-opacicity');
+        break;
+    }
+  };
 
-    case 'Наши ресурсы':
-      closeSection();
-      resourcesSection.classList.remove('js-hide-opacicity');
-      break;
+  var closeSection = function closeSection() {
+    contactsSection.classList.add('js-hide-opacicity');
+    librarySection.classList.add('js-hide-opacicity');
+    resourcesSection.classList.add('js-hide-opacicity');
+  };
+
+  var shutControls = function shutControls(node) {
+    controlsLink.forEach(function (control) {
+      control.classList.remove('about-controls__link--active');
+    });
+  };
+
+  var contactsSection = document.querySelector('.about-container--contacts');
+  var librarySection = document.querySelector('.about-container--library');
+  var resourcesSection = document.querySelector('.about-container--resources');
+  var controlsLink = document.querySelectorAll('.about-controls__link');
+  var controlsLinkBase = document.querySelector('.about-controls__link--base');
+  var controlsLinkLibrary = document.querySelector('.about-controls__link--library');
+  var controlsLinkResources = document.querySelector('.about-controls__link--resources');
+  var address = window.location.href;
+
+  if (address.includes('#library')) {
+    closeSection();
+    librarySection.classList.remove('js-hide-opacicity');
+    controlsLink.forEach(function (control) {
+      control.classList.remove('about-controls__link--active');
+    });
+    controlsLinkLibrary.classList.add('about-controls__link--active');
+  } else if (address.includes('#resorces')) {
+    closeSection();
+    resourcesSection.classList.remove('js-hide-opacicity');
+    controlsLink.forEach(function (control) {
+      control.classList.remove('about-controls__link--active');
+    });
+    controlsLinkResources.classList.add('about-controls__link--active');
+  } else {
+    closeSection();
+    contactsSection.classList.remove('js-hide-opacicity');
+    controlsLink.forEach(function (control) {
+      control.classList.remove('about-controls__link--active');
+    });
+    controlsLinkBase.classList.add('about-controls__link--active');
   }
-}
 
-function closeSection() {
-  contactsSection.classList.add('js-hide-opacicity');
-  librarySection.classList.add('js-hide-opacicity');
-  resourcesSection.classList.add('js-hide-opacicity');
-}
-
-function shutControls(node) {
   controlsLink.forEach(function (control) {
-    control.classList.remove('about-controls__link--active');
+    control.addEventListener('click', function () {
+      openSection(control);
+      shutControls(control);
+      control.classList.add('about-controls__link--active');
+    });
   });
 }
 
@@ -140,30 +170,34 @@ function toggleContainer(node) {
 // deleteWarningSpans();
 
 
-ymaps.ready(init);
+if (document.getElementById('map')) {
+  var init = function init() {
+    // Создание карты.
+    var myMap = new ymaps.Map("map", {
+      center: [52.251308, 104.267689],
+      zoom: 16
+    });
+    var myPlacemark = new ymaps.Placemark([52.251308, 104.267689], {
+      balloonContentHeader: 'Лермонтова, 253',
+      balloonContentBody: "+7 (3952) 48\u201266\u201280"
+    }, {
+      iconLayout: 'default#image',
+      iconImageHref: './assets/images/content/Logo_Simple_Better.png',
+      iconImageSize: [40, 40],
+      iconImageOffset: [-20, -22]
+    });
+    myMap.geoObjects.add(myPlacemark);
+  };
 
-function init() {
-  // Создание карты.
-  var myMap = new ymaps.Map("map", {
-    center: [52.251308, 104.267689],
-    zoom: 16
-  });
-  var myPlacemark = new ymaps.Placemark([52.251308, 104.267689], {
-    balloonContentHeader: 'Лермонтова, 253',
-    balloonContentBody: "+7 (3952) 48\u201266\u201280"
-  }, {
-    iconLayout: 'default#image',
-    iconImageHref: './assets/images/content/Logo_Simple_Better.png',
-    iconImageSize: [40, 40],
-    iconImageOffset: [-20, -22]
-  });
-  myMap.geoObjects.add(myPlacemark);
+  ymaps.ready(init);
 }
 
 var menuToggler = document.getElementById('MenuToggler');
 var headerExpanded = document.querySelector('.header--extended');
+console.log(menuToggler);
 
 function manipulateMenu() {
+  console.log('clicked');
   menuToggler.classList.toggle('header__menu--opened');
   headerExpanded.classList.toggle('header--opened');
 }
@@ -215,7 +249,7 @@ function shutTogglers() {
 var swiperNews = new Swiper('#newsSwiper', {
   speed: 400,
   spaceBetween: 20,
-  slidesPerView: 2,
+  slidesPerView: 3.5,
   effect: 'cards',
   direction: 'horizontal',
   pagination: {
@@ -231,6 +265,21 @@ var swiperBooks = new Swiper('#booksSwiper', {
   speed: 400,
   spaceBetween: 20,
   slidesPerView: 5,
+  effect: 'cards',
+  direction: 'horizontal',
+  pagination: {
+    el: '.swiper-pagination--books',
+    clickable: true
+  },
+  navigation: {
+    nextEl: '.swiper-button-next--books',
+    prevEl: '.swiper-button-prev--books'
+  }
+});
+var swiperLink = new Swiper('#linksSwiper', {
+  speed: 400,
+  spaceBetween: 20,
+  slidesPerView: 2,
   effect: 'cards',
   direction: 'horizontal',
   pagination: {

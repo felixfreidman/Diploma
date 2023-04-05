@@ -3,7 +3,7 @@
 const swiperNews = new Swiper('#newsSwiper', {
     speed: 400,
     spaceBetween: 20,
-    slidesPerView: 2,
+    slidesPerView: 3.5,
     effect: 'cards',
     direction: 'horizontal',
     pagination: {
@@ -20,6 +20,22 @@ const swiperBooks = new Swiper('#booksSwiper', {
     speed: 400,
     spaceBetween: 20,
     slidesPerView: 5,
+    effect: 'cards',
+    direction: 'horizontal',
+    pagination: {
+        el: '.swiper-pagination--books',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next--books',
+        prevEl: '.swiper-button-prev--books',
+    },
+});
+
+const swiperLink = new Swiper('#linksSwiper', {
+    speed: 400,
+    spaceBetween: 20,
+    slidesPerView: 2,
     effect: 'cards',
     direction: 'horizontal',
     pagination: {
