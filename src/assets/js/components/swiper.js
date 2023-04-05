@@ -14,13 +14,24 @@ const swiperNews = new Swiper('#newsSwiper', {
         nextEl: '.swiper-button-next--news',
         prevEl: '.swiper-button-prev--news',
     },
+    breakpoints: {
+        1499: {
+            slidesPerView: 3,
+            spaceBetween: 20
+        },
+        1220: {
+            slidesPerView: 2.5,
+            spaceBetween: 20
+        },
+
+    }
 });
 
 const swiperBooks = new Swiper('#booksSwiper', {
     speed: 400,
-    spaceBetween: 20,
-    slidesPerView: 5,
     effect: 'cards',
+    slidesPerView: 5,
+    spaceBetween: 20,
     direction: 'horizontal',
     pagination: {
         el: '.swiper-pagination--books',
@@ -30,6 +41,21 @@ const swiperBooks = new Swiper('#booksSwiper', {
         nextEl: '.swiper-button-next--books',
         prevEl: '.swiper-button-prev--books',
     },
+    breakpoints: {
+        1499: {
+            slidesPerView: 4,
+            spaceBetween: 20
+        },
+        1260: {
+            slidesPerView: 3.5,
+            spaceBetween: 20
+        },
+        1180: {
+            slidesPerView: 6,
+            spaceBetween: 20
+        },
+
+    }
 });
 
 const swiperLink = new Swiper('#linksSwiper', {
@@ -46,4 +72,11 @@ const swiperLink = new Swiper('#linksSwiper', {
         nextEl: '.swiper-button-next--books',
         prevEl: '.swiper-button-prev--books',
     },
+    breakpoints: {
+        1180: {
+            slidesPerView: 6,
+            spaceBetween: 20
+        },
+
+    }
 });

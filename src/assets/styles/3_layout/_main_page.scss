@@ -508,6 +508,7 @@
 
 .book-container {
     max-width: 889px;
+    margin-right: 40px;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -541,6 +542,7 @@
 
         .book-container {
             width: 96%;
+            margin: 0;
             max-height: 302px;
             height: fit-content;
             padding: 15px;
