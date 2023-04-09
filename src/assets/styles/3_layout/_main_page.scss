@@ -131,9 +131,9 @@
         background-position: 50% 50%;
         background-size: contain;
         cursor: pointer;
+        background-repeat: no-repeat;
     }
 
-    /* Customize the label (the container) */
     &__filter-tag {
         position: relative;
         display: flex;
