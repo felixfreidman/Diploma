@@ -268,6 +268,34 @@ var swiperNews = new Swiper('#newsSwiper', {
     1220: {
       slidesPerView: 2.5,
       spaceBetween: 20
+    },
+    980: {
+      slidesPerView: 2.2,
+      spaceBetween: 20
+    },
+    720: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    590: {
+      slidesPerView: 1.6,
+      spaceBetween: 20
+    },
+    520: {
+      slidesPerView: 1.4,
+      spaceBetween: 20
+    },
+    495: {
+      slidesPerView: 1.2,
+      spaceBetween: 20
+    },
+    400: {
+      slidesPerView: 1.1,
+      spaceBetween: 20
+    },
+    370: {
+      slidesPerView: 1,
+      spaceBetween: 10
     }
   }
 });
@@ -297,6 +325,30 @@ var swiperBooks = new Swiper('#booksSwiper', {
     1180: {
       slidesPerView: 6,
       spaceBetween: 20
+    },
+    980: {
+      slidesPerView: 5,
+      spaceBetween: 20
+    },
+    720: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    590: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    495: {
+      slidesPerView: 2.5,
+      spaceBetween: 20
+    },
+    400: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    370: {
+      slidesPerView: 2,
+      spaceBetween: 20
     }
   }
 });
@@ -317,6 +369,22 @@ var swiperLink = new Swiper('#linksSwiper', {
   breakpoints: {
     1180: {
       slidesPerView: 6,
+      spaceBetween: 20
+    },
+    980: {
+      slidesPerView: 5,
+      spaceBetween: 20
+    },
+    720: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+    590: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    },
+    495: {
+      slidesPerView: 2,
       spaceBetween: 20
     }
   }
