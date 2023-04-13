@@ -1,9 +1,8 @@
 const menuToggler = document.getElementById('MenuToggler');
 const headerExpanded = document.querySelector('.header--extended');
-console.log(menuToggler);
+const main = document.querySelector('.main');
 
 function manipulateMenu() {
-    console.log('clicked');
     menuToggler.classList.toggle('header__menu--opened');
     headerExpanded.classList.toggle('header--opened');
 }

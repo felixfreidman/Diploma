@@ -6,17 +6,17 @@ if (document.querySelector('.about-container--contacts')) {
     const controlsLinkBase = document.querySelector('.about-controls__link--base');
     const controlsLinkLibrary = document.querySelector('.about-controls__link--library');
     const controlsLinkResources = document.querySelector('.about-controls__link--resources');
+    const navLinks = document.querySelectorAll('.header__navigation-link');
 
     const address = window.location.href;
     if (address.includes('#library')) {
-
         closeSection();
         librarySection.classList.remove('js-hide-opacicity');
         controlsLink.forEach(control => {
             control.classList.remove('about-controls__link--active');
         });
         controlsLinkLibrary.classList.add('about-controls__link--active');
-    } else if (address.includes('#resorces')) {
+    } else if (address.includes('#resources')) {
         closeSection();
         resourcesSection.classList.remove('js-hide-opacicity');
         controlsLink.forEach(control => {
@@ -35,7 +35,34 @@ if (document.querySelector('.about-container--contacts')) {
         control.addEventListener('click', () => {
             openSection(control);
             shutControls(control);
+            let addressTemp = window.location.href;
+            addressTemp = addressTemp.replace('#library', '');
+            addressTemp = addressTemp.replace('#resources', '');
+            switch (control.textContent) {
+                case 'Контакты':
+                    addressTemp = addressTemp + '';
+                    break;
+
+                case 'О библиотеке':
+                    addressTemp = addressTemp + '#library';
+                    break;
+
+                case 'Наши ресурсы':
+                    addressTemp = addressTemp + '#resources';
+                    break;
+
+            }
+            window.location.href = addressTemp;
             control.classList.add('about-controls__link--active');
+        });
+    })
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (link.href.includes('#')) {
+                window.location.href = link.href;
+                location.reload();
+            }
         });
     })
 
@@ -61,6 +88,7 @@ if (document.querySelector('.about-container--contacts')) {
         contactsSection.classList.add('js-hide-opacicity');
         librarySection.classList.add('js-hide-opacicity');
         resourcesSection.classList.add('js-hide-opacicity');
+
     }
 
     function shutControls(node) {

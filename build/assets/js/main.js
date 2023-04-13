@@ -41,6 +41,7 @@ if (document.querySelector('.about-container--contacts')) {
   var controlsLinkBase = document.querySelector('.about-controls__link--base');
   var controlsLinkLibrary = document.querySelector('.about-controls__link--library');
   var controlsLinkResources = document.querySelector('.about-controls__link--resources');
+  var navLinks = document.querySelectorAll('.header__navigation-link');
   var address = window.location.href;
 
   if (address.includes('#library')) {
@@ -50,7 +51,7 @@ if (document.querySelector('.about-container--contacts')) {
       control.classList.remove('about-controls__link--active');
     });
     controlsLinkLibrary.classList.add('about-controls__link--active');
-  } else if (address.includes('#resorces')) {
+  } else if (address.includes('#resources')) {
     closeSection();
     resourcesSection.classList.remove('js-hide-opacicity');
     controlsLink.forEach(function (control) {
@@ -70,7 +71,34 @@ if (document.querySelector('.about-container--contacts')) {
     control.addEventListener('click', function () {
       openSection(control);
       shutControls(control);
+      var addressTemp = window.location.href;
+      addressTemp = addressTemp.replace('#library', '');
+      addressTemp = addressTemp.replace('#resources', '');
+
+      switch (control.textContent) {
+        case 'Контакты':
+          addressTemp = addressTemp + '';
+          break;
+
+        case 'О библиотеке':
+          addressTemp = addressTemp + '#library';
+          break;
+
+        case 'Наши ресурсы':
+          addressTemp = addressTemp + '#resources';
+          break;
+      }
+
+      window.location.href = addressTemp;
       control.classList.add('about-controls__link--active');
+    });
+  });
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (link.href.includes('#')) {
+        window.location.href = link.href;
+        location.reload();
+      }
     });
   });
 }
@@ -170,6 +198,13 @@ function toggleContainer(node) {
 // deleteWarningSpans();
 
 
+if (document.querySelector('.form-section__form')) {
+  var questionForm = document.querySelector('.form-section__form');
+  questionForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+  });
+}
+
 if (document.getElementById('map')) {
   var init = function init() {
     // Создание карты.
@@ -194,10 +229,9 @@ if (document.getElementById('map')) {
 
 var menuToggler = document.getElementById('MenuToggler');
 var headerExpanded = document.querySelector('.header--extended');
-console.log(menuToggler);
+var main = document.querySelector('.main');
 
 function manipulateMenu() {
-  console.log('clicked');
   menuToggler.classList.toggle('header__menu--opened');
   headerExpanded.classList.toggle('header--opened');
 }

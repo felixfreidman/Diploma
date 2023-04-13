@@ -242,8 +242,12 @@
         display: none;
     }
 
-    .header--extended {
+    .header .cross--red {
         display: none;
+    }
+
+    .header .cross {
+        height: 6px;
     }
 
     .search-form__filter-container {

@@ -79,3 +79,13 @@
 // }
 
 // deleteWarningSpans();
+
+
+
+if (document.querySelector('.form-section__form')) {
+    const questionForm = document.querySelector('.form-section__form');
+
+    questionForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+    })
+}

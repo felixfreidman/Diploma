@@ -46,6 +46,7 @@
         flex-direction: column;
         align-items: center;
         cursor: pointer;
+        width: 38px;
 
         &.header__menu--opened {
             .cross {
@@ -132,6 +133,7 @@
         background-color: $firm_white;
         transform: translateY(-600px);
         transition: all 0.6s ease;
+        overflow-y: scroll;
 
         &.header--opened {
             transform: translateY(0);
@@ -142,6 +144,10 @@
         display: flex;
         flex-direction: column;
         align-items: start;
+
+        &---mobile {
+            display: none;
+        }
     }
 
     &__column-header {
@@ -173,4 +179,92 @@
         padding: 0;
     }
 
+}
+
+@media screen and (max-width: 1850px) {
+    .header--extended {
+        padding-left: 160px;
+        padding-right: 160px;
+    }
+}
+
+@media screen and (max-width: 1380px) {
+    .header--extended {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+}
+
+
+@media screen and (max-width: 1180px) {
+    .header--extended {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .header__column-row {
+        font-size: 14px;
+    }
+
+    .header__column-header {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .header__column {
+        width: calc(25% - 10px);
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .header-row {
+        flex-wrap: wrap;
+    }
+
+    .header__column {
+        width: calc(50% - 10px);
+    }
+
+    .header__column-row:last-child {
+        margin-bottom: 8px;
+    }
+
+    .header__column-row {
+        margin-bottom: 8px;
+    }
+
+    .header__column---mobile {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .header--extended {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .header--extended {
+        top: 65px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .header__column {
+        width: calc(100%);
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .header--extended {
+        top: 53px;
+    }
+}
+
+@media screen and (max-width: 460px) and (max-height: 740px) {
+    .header--extended {
+        height: 100vh;
+    }
 }
